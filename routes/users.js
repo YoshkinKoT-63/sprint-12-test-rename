@@ -15,7 +15,7 @@ users.get('/:id', (req, res) => {
   if (userData) {
     res.send(userData);
   } else {
-    res.status(404).send('message": "Нет пользователя с таким id');
+    res.status(404).send({ message: 'Нет пользователя с таким id' });
   }
 });
 
