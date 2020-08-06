@@ -17,7 +17,7 @@ users.get('/', (req, res) => {
 users.get('/:id', (req, res) => {
   fs.readFile(filePath, { encoding: 'utf8' })
     .then((data) => {
-      const userData = JSON.parse(data).find((user) => user._id === req.params.id);
+      const userData = JSON.parse(data).find(({ _id: userId }) => userId === req.params.id);
       if (userData) {
         res.send(userData);
       } else {
